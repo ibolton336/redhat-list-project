@@ -1,0 +1,58 @@
+Please answer the 2 questions from each of these 3 sections (and complete the 3 practical
+exercises below):
+
+Section 1 - Design & Development
+
+Q1
+Could you outline what you would consider to be the important considerations If you were
+asked to develop a web application that could potentially be used by thousands of users?
+
+A1-
+Scalability. I would want to be sure that the application was designed with scalability in mind from the beginning. This could be done by not enforcing data structures 
+heavily from the beginning & by writing more action based functional code. Rather than defining set objects and developing around them, you could define a set of actions 
+that you would like for your users to complete.
+
+Q2
+What techniques do you employ to keep up-to-date with the rapid pace of progress in the
+field frontend development? How do you choose which technologies are worth taking the
+time to learn more about?
+
+A2-
+While the front end field is moving and changing at a rapid pace, I like to refresh myself on the fundamental prototypal nature of javascript which things like 
+ES6 classes merely wrap in sugar syntax. Understanding javascript at its core has helped me stay grounded when evaluating other front end technologies. 
+
+
+Section 2 - & Deployment
+Q1
+Describe the approach you take in testing your applications.
+
+A1 - 
+Functional programming by its very nature lends itself to being more testable than OO code. This is because of the idea of pure functions & the idea that your functions
+should have an input and an output without having any side effects. 
+
+Q2
+What do you value in a code base?
+
+A2-
+
+I value consistency and lack of overcomplexity. Although functional programming is nice, I beleive in keeping the code as readible and maintainable as possible without 
+trying to write code with the least amount of characters possible. 
+
+
+Section 3 - General
+Q1
+What do you find most exciting or interesting about working in the software development
+field?
+
+A1 -
+As I have spent more time in this field, I think that the apparent growth that I have noticed in my skillset(technical & solf skills) has been very rewarding. The quest 
+for mastery of a language or technology is something that really drives me. Also, the creative aspect of designing user experiences & bouncing ideas off of other developers 
+has also been very rewarding.
+
+
+Q2
+In your career to date, what are you most proud of and why?
+
+A2 
+I would say my most recent work at Cisco would be my best work. Being given the opportunity to develop an application from wireframes to production was very challenging. I feel that I grow the most when things 
+push me to a place where I feel uncomfortable with the complexity. 
