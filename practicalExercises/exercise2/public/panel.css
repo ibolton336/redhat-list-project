@@ -1,0 +1,16 @@
+/* Use vanilla CSS
+● The hover state should look the same as the active.
+● The component should be modular and expandable.
+● It should be responsive.
+● The font is Overpass
+● Colors are:
+○ red #c00 and #470000
+○ gray #bbb and #ededed */
+
+.h1 {
+  font-size: 40px !important;
+}
+
+.testing {
+  color: red;
+}

@@ -6,12 +6,12 @@ import { alertActions } from "../_actions";
 import { Button, Container, Dropdown, Icon, Menu } from "semantic-ui-react";
 import { history } from "../_helpers";
 import HomePage from "../HomePage";
+import { Panel } from "../_components/Panel";
 
 const styles = require("./App.less");
 const options = {
   allowMultiple: true
 };
-
 @CSSModules(styles, options)
 class App extends React.Component<any, any> {
   constructor(props) {
@@ -25,6 +25,25 @@ class App extends React.Component<any, any> {
   componentDidMount() {}
   public render() {
     const { alert } = this.props;
+    const navItems = ["One", "Two", "Three"];
+    const fields = [
+      {
+        fieldName: "Case ID",
+        fieldValue: "Case0002b"
+      },
+      {
+        fieldName: "Case Name",
+        fieldValue: "Development case instance"
+      },
+      {
+        fieldName: "Status",
+        fieldValue: true
+      },
+      {
+        fieldName: "State",
+        fieldValue: "Started on March 16th, 2017"
+      }
+    ];
     return (
       <Container>
         {alert.message && (
@@ -32,6 +51,11 @@ class App extends React.Component<any, any> {
         )}
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/panel"
+            render={() => <Panel fields={fields} navItems={navItems} />}
+          />
         </Switch>
       </Container>
     );

@@ -5,12 +5,13 @@ import { Provider } from "react-redux";
 import { Router } from "react-router-dom";
 import { history, store } from "./_helpers";
 import { App } from "./App";
+import "./index.css";
 require("./styling/semantic.less");
 render(
-    <Provider store={store}>
-        <Router history={history}>
-            <App />
-        </Router>
-    </Provider>,
-    document.getElementById("root")
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById("root")
 );

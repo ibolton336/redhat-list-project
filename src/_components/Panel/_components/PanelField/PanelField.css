@@ -1,0 +1,40 @@
+/* ○ gray #bbb and #ededed */
+.field-flex-grid {
+  display: flex;
+  justify-content: left;
+  height: 2em;
+  align-items: flex-end;
+}
+
+.field-name-col {
+  font-family: "overpass-regular";
+  flex: 0 0 10em;
+  color: #444444;
+}
+.field-value-col {
+  flex: 1;
+  color: #666666;
+  font-family: "overpass-light";
+}
+.active-field-value-col {
+  width: 4em;
+  text-align: center;
+  font-family: "overpass-thin";
+  background: #458e48;
+  color: white;
+  border-radius: 0.2em;
+}
+@media (max-width: 600px) {
+  .field-flex-grid {
+    display: block;
+    margin: 1em 0em;
+  }
+  .field-name-col {
+    font-family: "overpass-regular";
+    color: #444444;
+  }
+  .field-value-col {
+    color: #666666;
+    font-family: "overpass-light";
+  }
+}

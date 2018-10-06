@@ -1,0 +1,14 @@
+.field-flex-grid {
+  display: flex;
+  justify-content: left;
+  height: 2em;
+}
+.field-col {
+  flex: 1;
+  /* margin: 2em; */
+}
+@media (max-width: 400px) {
+  .field-flex-grid {
+    display: block;
+  }
+}

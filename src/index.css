@@ -1,5 +1,26 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "overpass-regular";
+  background-image: url("./assets/images/dust_scratches.png");
+}
+@font-face {
+  font-family: "overpass-regular";
+  src: url("./assets/fonts/overpass-regular.otf");
+}
+@font-face {
+  font-family: "overpass-light";
+  src: url("./assets/fonts/overpass-light.otf");
+}
+@font-face {
+  font-family: "overpass-extralight";
+  src: url("./assets/fonts/overpass-extralight.otf");
+}
+@font-face {
+  font-family: "overpass-bold";
+  src: url("./assets/fonts/overpass-bold.otf");
+}
+@font-face {
+  font-family: "overpass-thin";
+  src: url("./assets/fonts/overpass-thin.otf");
 }
