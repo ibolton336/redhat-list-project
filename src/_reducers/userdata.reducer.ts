@@ -23,7 +23,7 @@ export function userdata(state = initialServiceState, action) {
     case userdataConstants.SET_ACTIVE_USER:
       return {
         ...state,
-        activeUser: action.payload
+        activeUser: action.activeUser
       };
     default:
       return state;

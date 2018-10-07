@@ -52,7 +52,12 @@ export class ConnectedUserDetailPage extends React.Component<
           </Breadcrumb.Section>
         </Breadcrumb>
 
-        <div className="nav-item">{userData.activeUser.name}</div>
+        <div >id {userData.activeUser[0].id}</div>
+        <div >name {userData.activeUser[0].name}</div>
+        <div >username {userData.activeUser[0].username}</div>
+        <div >name {userData.activeUser[0].name}</div>
+
+
       </div>
     );
   }
