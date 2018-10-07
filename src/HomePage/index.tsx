@@ -1,57 +1,35 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { userdataActions } from "../_actions/userdata.actions";
+import { getSortedUsers } from "../_selectors";
 import { Dimmer, Header, Loader } from "semantic-ui-react";
 import "./HomePage.css";
-import ReactTable from "react-table";
-import 'react-table/react-table.css'
 
 class ConnectedHomePage extends React.Component<any, any> {
   componentDidMount() {
-
     this.props.getLatest();
   }
-
+  navToDetailPage(i) {}
   render() {
-    const columns = [
-      {
-        Header: 'Email',
-        accessor: 'email' // String-based value accessors!
-      }, {
-        Header: 'Name',
-        accessor: 'name',
-      },
-      {
-        Header: 'Phone',
-        accessor: 'phone' // String-based value accessors!
-      }, {
-        Header: 'Username',
-        accessor: 'username',
-      }
-    ]
-
-    if (this.props.userdata.users === null) {
+    if (this.props.users === null) {
       return (
         <Dimmer active>
           <Loader />
         </Dimmer>
-
-      )
-
+      );
     }
     return (
       <div className="home-container">
-        <Header as='h2'>Redhat Users </Header>
-
+        <Header as="h2">Redhat Users </Header>
         <div className="row">
-          <ReactTable
-            data={this.props.userdata.users}
-            columns={columns}
-          />
-        </div>
-        <div className="row">
+          {this.props.users.map((user, i) => (
+            <div key={i} onClick={() => this.navToDetailPage(i)}>
+              <p className="nav-text">{user.name}</p>
+            </div>
+          ))}
         </div>
 
+        <div className="row" />
       </div>
     );
   }
@@ -60,14 +38,17 @@ class ConnectedHomePage extends React.Component<any, any> {
 function mapDispatchToProps(dispatch) {
   return {
     getLatest: () => {
-      dispatch(userdataActions.getLatest())
+      dispatch(userdataActions.getLatest());
+    },
+    setSortFilter: filter => {
+      dispatch(userdataActions.setSortFilter(filter));
     }
   };
 }
 
 function mapStateToProps(state) {
   return {
-    userdata: state.userdata
+    users: getSortedUsers(state)
   };
 }
 const HomePage = connect(

@@ -5,5 +5,5 @@
 
 #Practical Exercise #1
 
-1.  cd practicalExercises
+1.  cd practicalExercises/exercise1/
 2.  run "./../node_modules/mocha/bin/mocha test/test.js"

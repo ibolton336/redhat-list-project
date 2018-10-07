@@ -2,7 +2,8 @@ import { userdataConstants } from "../_constants";
 import { newsService } from "../_services/news.service";
 
 export const userdataActions = {
-  getLatest
+  getLatest,
+  setSortFilter
 };
 
 function getLatest() {
@@ -30,4 +31,8 @@ function getLatest() {
   function failure(error) {
     return { type: userdataConstants.GET_LATEST_ERROR, error };
   }
+}
+
+function setSortFilter(filter) {
+  return { type: userdataConstants.SET_SORT_FILTER, filter };
 }
