@@ -5,6 +5,7 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .page-title {
   margin: 0.5em;
   font-size: 3em;
@@ -15,15 +16,12 @@
 .data-col {
   flex: 0 0 13em;
   margin: 2em;
-  /* border: 1px solid black; */
 }
 
-.custom-table {
-}
 .header-col {
   flex: 0 0 13em;
   margin: 2em;
-  /* border: 1px solid black; */
+  font-family: "overpass-bold";
 }
 .header-row {
   display: flex;
@@ -39,5 +37,13 @@
   padding-top: 0.4em;
   height: 2em;
 }
-.username-text {
+.address-container {
+  display: flex;
+}
+.address-title {
+  flex: 1;
+  font-family: "overpass-bold";
+}
+.address-text {
+  flex: 1;
 }

@@ -55,7 +55,7 @@ class ConnectedHomePage extends React.Component<any, any> {
               <div className="data-col">{user.username}</div>
               <div className="data-col">{user.email}</div>
               <div className="data-col">
-                <div className="address-container">
+                <div className="address-text">
                   <p>{user.address.street}</p>
                   <p>{user.address.city}</p>
                   <p>{user.address.zipcode}</p>

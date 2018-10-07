@@ -4,8 +4,7 @@ const initialServiceState = {
   users: null,
   loading: false,
   error: null,
-  sortFilter: "SHOW_SORTED",
-  activeUser: null
+  sortFilter: "SHOW_SORTED"
 };
 export function userdata(state = initialServiceState, action) {
   switch (action.type) {
@@ -20,11 +19,6 @@ export function userdata(state = initialServiceState, action) {
       return { ...state, error: action.payload };
     case userdataConstants.SET_SORT_FILTER:
       return { ...state, sortFilter: action.payload };
-    case userdataConstants.SET_ACTIVE_USER:
-      return {
-        ...state,
-        activeUser: action.activeUser
-      };
     default:
       return state;
   }

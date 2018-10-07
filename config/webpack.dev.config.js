@@ -111,8 +111,8 @@ const config = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
       title: "Account Management",
-      inject: "body"
-      // favicon: 'src/assets/favicon.ico'
+      inject: "body",
+      favicon: "src/assets/favicon.ico"
     }),
     new ExtractTextPlugin({
       filename: "[name].[contenthash].css"

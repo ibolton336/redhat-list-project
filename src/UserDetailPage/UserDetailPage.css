@@ -1,4 +1,4 @@
-.home-container {
+.user-detail-container {
   display: flex;
   width: auto;
   align-items: center;
@@ -39,5 +39,39 @@
   padding-top: 0.4em;
   height: 2em;
 }
-.username-text {
+.user-title {
+  margin: 0 0 0.4em 0;
+}
+.address-container {
+  display: flex;
+}
+.address-title {
+  flex: 1;
+  font-family: "overpass-bold";
+}
+.address-text {
+  flex: 1;
+}
+.key {
+  font-family: "overpass-bold";
+  flex: 1;
+}
+.value {
+  margin-left: auto;
+  flex: 1;
+}
+.text-container {
+  display: flex;
+  margin: 0 0 0.4em 0;
+}
+.user-detail-card {
+  margin: 1.1em;
+}
+.breadcrumb-container {
+}
+.custom-card-override {
+  min-width: 30em !important;
+}
+.bs-container {
+  margin: 0.3em;
 }

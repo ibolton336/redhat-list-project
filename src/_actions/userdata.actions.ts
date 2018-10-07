@@ -3,8 +3,7 @@ import { newsService } from "../_services/news.service";
 
 export const userdataActions = {
   getLatest,
-  setSortFilter,
-  setActiveUser
+  setSortFilter
 };
 
 function getLatest() {
@@ -36,13 +35,4 @@ function getLatest() {
 
 function setSortFilter(filter) {
   return { type: userdataConstants.SET_SORT_FILTER, filter };
-}
-function setActiveUser(users, userID) {
-  const activeUser = users.filter(
-    (user, i) => user.id === parseInt(userID, 10)
-  );
-  return {
-    type: userdataConstants.SET_ACTIVE_USER,
-    activeUser
-  };
 }
