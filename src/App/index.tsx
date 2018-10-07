@@ -6,6 +6,7 @@ import { alertActions } from "../_actions";
 import { Button, Container, Dropdown, Icon, Menu } from "semantic-ui-react";
 import { history } from "../_helpers";
 import HomePage from "../HomePage";
+import UserDetailPage from "../UserDetailPage";
 import { Panel } from "../_components/Panel";
 
 const styles = require("./App.less");
@@ -51,6 +52,7 @@ class App extends React.Component<any, any> {
         )}
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/user/:id" component={UserDetailPage} />
           <Route
             exact
             path="/panel"
