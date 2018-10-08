@@ -67,7 +67,15 @@ const config = {
       // "file" loader makes sure assets end up in the `build` folder.
       // When you `import` an asset, you get its filename.
       {
-        test: [/\.eot$/, /\.otf$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
+        test: [
+          /\.eot$/,
+          /\.otf$/,
+          /\.ttf$/,
+          /\.svg$/,
+          /\.woff$/,
+          /\.woff2$/,
+          /\.ico$/
+        ],
         loader: require.resolve("file-loader"),
         exclude: [path.resolve(paths.styling, "fonts")]
       },
