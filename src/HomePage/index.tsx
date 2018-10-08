@@ -11,10 +11,8 @@ import {
   Image
 } from "semantic-ui-react";
 import { history } from "../_helpers";
-// import zipcodes from "zipcodes";
 import "./HomePage.css";
 import { userdata } from "../_reducers/userdata.reducer";
-// import logoImg from "../assets/images/RHT.png";
 const logoImg = require("../assets/images/rh-svg.svg");
 class ConnectedHomePage extends React.Component<any, any> {
   componentDidMount() {
@@ -55,6 +53,7 @@ class ConnectedHomePage extends React.Component<any, any> {
                   <List.Icon name="user" size="large" verticalAlign="middle" />
                   <List.Content>
                     <List.Header
+                      className="bookmark-link"
                       as="a"
                       onClick={() => history.push("/user/" + user.id)}
                     >

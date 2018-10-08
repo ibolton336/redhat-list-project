@@ -23,7 +23,6 @@ export class Panel extends React.Component<IPanelProps, IPanelState> {
 
   toggleClass = index => {
     this.setState({ activeIndex: index });
-    console.log("index", index);
   };
 
   render() {

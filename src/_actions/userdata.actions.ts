@@ -1,5 +1,5 @@
 import { userdataConstants } from "../_constants";
-import { newsService } from "../_services/news.service";
+import { usersService } from "../_services/users.service";
 
 export const userdataActions = {
   getLatest,
@@ -11,14 +11,13 @@ function getLatest() {
   return dispatch => {
     dispatch(request());
     let payload;
-    newsService.getLatest(payload).then(
+    usersService.getLatest(payload).then(
       data => {
         dispatch(success(data.data));
       },
 
       error => {
         dispatch(failure(error));
-        // dispatch(alertActions.error(error))
       }
     );
   };
