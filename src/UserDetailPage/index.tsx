@@ -6,19 +6,24 @@ import {
   Loader,
   Card,
   Icon,
-  Image
+  Image,
+  Button,
+  List
 } from "semantic-ui-react";
 import { history } from "../_helpers";
 import { connect } from "react-redux";
 import { getSortedUsers } from "../_selectors";
-
+import { UserDetailCard } from "../_components/UserDetailCard";
 import "./UserDetailPage.css";
+const logoImg = require("../assets/images/rh-svg.svg");
 
 interface IUserDetailPageProps {
   match: any;
   userData: any;
   getLatest: any;
   users: any;
+  toggleFavorite: any;
+  setFavorites: any;
 }
 
 export class ConnectedUserDetailPage extends React.Component<
@@ -29,64 +34,21 @@ export class ConnectedUserDetailPage extends React.Component<
     this.props.getLatest();
   }
 
-  onUnload() {
-    history.push("/");
-  }
-
-  renderUserList() {
-    const { userData, match } = this.props;
+  renderUserDetailCard() {
+    const { userData, match, setFavorites } = this.props;
     const activeUser = userData.users.filter(
       (user, i) => user.id === parseInt(match.params.id, 10)
     );
     const user = activeUser[0];
+    const isFavorite =
+      userData.favorites.findIndex(favorite => favorite.id === user.id) > -1;
     return (
-      <div className="user-detail-card">
-        <Card className="custom-card-override">
-          <Card.Content>
-            <Card.Header className="user-title">{user.name}</Card.Header>
-            <Card.Meta>
-              <div className="text-container">
-                <div className="key">Username: </div>
-                <div className="value">{user.username}</div>
-              </div>
-              <div className="text-container">
-                <div className="key">Email: </div>
-                <div className="value">{user.email}</div>
-              </div>
-              <div className="text-container">
-                <div className="key">Phone: </div>
-                <div className="value">{user.phone}</div>
-              </div>
-              <div className="text-container">
-                <div className="key">Website: </div>
-                <div className="value">
-                  <a target="_blank" href={"https://www." + user.website}>
-                    {user.website}
-                  </a>
-                </div>
-              </div>
-              <div className="address-container">
-                <div className="address-title">Address:</div>
-                <div className="address-text">
-                  <p>{user.address.street}</p>
-                  <p>{user.address.city}</p>
-                  <p>{user.address.zipcode}</p>
-                </div>
-              </div>
-            </Card.Meta>
-          </Card.Content>
-          <Card.Content extra>
-            <a>
-              <Icon name="building" />
-              {user.company.name} | {user.company.catchPhrase}
-            </a>
-            {/* <Card.Description>{user.company.catchPhrase}</Card.Description> */}
-            <Card.Description className="bs-container">
-              {user.company.bs}
-            </Card.Description>
-          </Card.Content>
-        </Card>
-      </div>
+      <UserDetailCard
+        isFavorite={isFavorite}
+        favorites={userData.favorites}
+        user={activeUser}
+        setFavorites={setFavorites}
+      />
     );
   }
 
@@ -94,7 +56,11 @@ export class ConnectedUserDetailPage extends React.Component<
     const { userData } = this.props;
     return (
       <div className="user-detail-container">
-        <div className="page-title">User Detail Page</div>
+        <div className="header-brand">
+          <Image className="page-logo" src={logoImg} size="tiny" />
+          <div className="page-title">User Detail Page</div>
+        </div>
+
         <Breadcrumb className="breadcrumb-container">
           <Breadcrumb.Section onClick={() => history.push("/")}>
             User List
@@ -106,7 +72,7 @@ export class ConnectedUserDetailPage extends React.Component<
               : "No User Found"}
           </Breadcrumb.Section>
         </Breadcrumb>
-        {userData.users && this.renderUserList()}
+        {userData.users ? this.renderUserDetailCard() : <h2>list is empty</h2>}
       </div>
     );
   }
@@ -122,6 +88,9 @@ function mapDispatchToProps(dispatch) {
   return {
     getLatest: () => {
       dispatch(userdataActions.getLatest());
+    },
+    setFavorites: favorites => {
+      dispatch(userdataActions.setFavorites(favorites));
     }
   };
 }

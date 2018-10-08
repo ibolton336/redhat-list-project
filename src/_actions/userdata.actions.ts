@@ -3,7 +3,8 @@ import { newsService } from "../_services/news.service";
 
 export const userdataActions = {
   getLatest,
-  setSortFilter
+  setSortFilter,
+  setFavorites
 };
 
 function getLatest() {
@@ -35,4 +36,7 @@ function getLatest() {
 
 function setSortFilter(filter) {
   return { type: userdataConstants.SET_SORT_FILTER, filter };
+}
+function setFavorites(favorites) {
+  return { type: userdataConstants.SET_FAVORITES, favorites };
 }

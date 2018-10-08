@@ -6,10 +6,6 @@
   flex-direction: column;
 }
 
-.page-title {
-  margin: 0.5em;
-  font-size: 3em;
-}
 .data-row {
   display: flex;
 }
@@ -46,4 +42,23 @@
 }
 .address-text {
   flex: 1;
+}
+.bookmarked-users {
+  text-align: center;
+}
+.bookmarks-title {
+  font-size: 2em;
+  font-family: "overpass-bold";
+  border-bottom: 0.1em solid #bbbbbb;
+}
+.header-brand {
+  display: flex;
+  height: 6em;
+}
+.page-logo {
+  margin-top: auto;
+}
+.page-title {
+  font-size: 3em;
+  margin: auto 0 0.6em 1em;
 }

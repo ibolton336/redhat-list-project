@@ -2,15 +2,21 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { userdataActions } from "../_actions/userdata.actions";
 import { getSortedUsers } from "../_selectors";
-import { Dimmer, Header, Loader } from "semantic-ui-react";
+import {
+  Dimmer,
+  Divider,
+  Header,
+  Loader,
+  List,
+  Image
+} from "semantic-ui-react";
 import { history } from "../_helpers";
-
 // import zipcodes from "zipcodes";
 import "./HomePage.css";
+import { userdata } from "../_reducers/userdata.reducer";
+// import logoImg from "../assets/images/RHT.png";
+const logoImg = require("../assets/images/rh-svg.svg");
 class ConnectedHomePage extends React.Component<any, any> {
-  state = {
-    columnNames: null
-  };
   componentDidMount() {
     this.props.getLatest();
   }
@@ -32,7 +38,37 @@ class ConnectedHomePage extends React.Component<any, any> {
     }
     return (
       <div className="home-container">
-        <div className="page-title">Redhat Users </div>
+        <div className="header-brand">
+          <Image className="page-logo" src={logoImg} size="tiny" />
+          <div className="page-title">Users</div>
+        </div>
+        <Divider />
+
+        {this.props.favorites.length > 0 && (
+          <div className="bookmarked-users">
+            <div className="bookmarks-title">
+              <p>Bookmarked users</p>
+            </div>
+            <List divided relaxed verticalAlign="bottom">
+              {this.props.favorites.map((user, i) => (
+                <List.Item>
+                  <List.Icon name="user" size="large" verticalAlign="middle" />
+                  <List.Content>
+                    <List.Header
+                      as="a"
+                      onClick={() => history.push("/user/" + user.id)}
+                    >
+                      {user.name}
+                    </List.Header>
+                    <List.Description as="a">{user.username}</List.Description>
+                  </List.Content>
+                </List.Item>
+              ))}
+            </List>
+          </div>
+        )}
+        <Divider />
+
         <div className="custom-table">
           <div className="header-row">
             {/* {Object.keys(this.props.users[0]).map((colName, i) => ( */}
@@ -64,8 +100,6 @@ class ConnectedHomePage extends React.Component<any, any> {
             </div>
           ))}
         </div>
-
-        <div className="row" />
       </div>
     );
   }
@@ -84,7 +118,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    users: getSortedUsers(state)
+    users: getSortedUsers(state),
+    favorites: state.userdata.favorites
   };
 }
 const HomePage = connect(

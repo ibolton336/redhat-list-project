@@ -5,7 +5,7 @@
   justify-content: center;
   flex-direction: column;
 }
-.page-title {
+.user-detail-page-title {
   margin: 0.5em;
   font-size: 3em;
 }
@@ -13,17 +13,17 @@
   display: flex;
 }
 .data-col {
-  flex: 0 0 13em;
+  flex: 1;
   margin: 2em;
-  /* border: 1px solid black; */
 }
 
 .custom-table {
+  width: 100%;
+  text-align: center;
 }
 .header-col {
-  flex: 0 0 13em;
+  flex: 1;
   margin: 2em;
-  /* border: 1px solid black; */
 }
 .header-row {
   display: flex;
@@ -38,9 +38,6 @@
   text-align: center;
   padding-top: 0.4em;
   height: 2em;
-}
-.user-title {
-  margin: 0 0 0.4em 0;
 }
 .address-container {
   display: flex;
@@ -74,4 +71,11 @@
 }
 .bs-container {
   margin: 0.3em;
+}
+.bookmark-button {
+  margin-left: auto !important;
+}
+.user-title {
+  margin: 0 0 0.4em 0;
+  display: flex !important;
 }
