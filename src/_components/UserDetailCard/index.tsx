@@ -88,7 +88,9 @@ export class UserDetailCard extends React.Component<
                 <div className="address-title">Address:</div>
                 <div className="address-text">
                   <p>{user.address.street}</p>
-                  <p>{user.address.city}</p>
+                  <p>
+                    {user.address.city}, {user.address.state}
+                  </p>
                   <p>{user.address.zipcode}</p>
                 </div>
               </div>

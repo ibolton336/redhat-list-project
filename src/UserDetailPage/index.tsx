@@ -30,10 +30,6 @@ export class ConnectedUserDetailPage extends React.Component<
   IUserDetailPageProps,
   any
 > {
-  componentDidMount() {
-    this.props.getLatest();
-  }
-
   renderUserDetailCard() {
     const { userData, match, setFavorites } = this.props;
     const activeUser = userData.users.filter(
