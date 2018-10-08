@@ -1,7 +1,5 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-const paths = require("./paths");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const HOST = process.env.HOST || "localhost";
@@ -17,60 +15,38 @@ const config = {
     publicPath: "/"
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
-    alias: {
-      "../../theme.config$": path.resolve(paths.styling, "theme.config"),
-      heading: path.resolve(paths.styling, "heading.less")
-    }
+    extensions: [".ts", ".tsx", ".js"]
   },
   devtool: "eval-cheap-module-source-map",
   module: {
     rules: [
-      //semantic ui custom theme less loader
-      {
-        test: /\.less$/,
-        include: [path.resolve(paths.styling)],
-        use: ExtractTextPlugin.extract({
-          use: ["css-loader", "less-loader"]
-        })
-      },
-      //css module less loader in components dir
-      {
-        test: /\.less$/,
-        exclude: [path.resolve(paths.styling)],
-        loaders: [
-          "style-loader?sourceMap",
-          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
-          "resolve-url-loader",
-          "less-loader?sourceMap"
-        ]
-      },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: "ts-loader"
       },
+      // {
+      //   test: /\.(png|jpg|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: "url-loader",
+      //       options: {
+      //         limit: 8192
+      //       }
+      //     }
+      //   ]
+      // },
       {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff",
-        include: [path.resolve(paths.styling, "fonts")]
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-        include: [path.resolve(paths.styling, "fonts")]
-      },
-      {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.ico$/],
-        loader: require.resolve("url-loader"),
-        exclude: [path.resolve(paths.styling, "fonts")]
-      },
-      // "file" loader makes sure assets end up in the `build` folder.
-      // When you `import` an asset, you get its filename.
-      {
-        test: [/\.eot$/, /\.otf$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
-        loader: require.resolve("file-loader"),
-        exclude: [path.resolve(paths.styling, "fonts/WebSans")]
+        test: [
+          /\.eot$/,
+          /\.otf$/,
+          /\.ttf$/,
+          /\.svg$/,
+          /\.png$/,
+          /\.woff$/,
+          /\.woff2$/
+        ],
+        loader: require.resolve("file-loader")
       },
       {
         test: /\.css$/,
@@ -86,23 +62,7 @@ const config = {
     historyApiFallback: true,
     hot: true,
     overlay: true,
-    open: true,
-    proxy: {
-      "/sonar": {
-        target: "http://localhost:8080/",
-        pathRewrite: { "^/sonar": "" },
-        secure: false
-        // logLevel: "debug",
-        // changeOrigin: true
-      },
-      "/microservice/sonar": {
-        target: "http://localhost:8080/",
-        pathRewrite: { "^/sonar": "" },
-        secure: false
-        // logLevel: "debug",
-        // changeOrigin: true
-      }
-    }
+    open: true
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),

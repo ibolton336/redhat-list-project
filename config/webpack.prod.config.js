@@ -4,9 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const autoprefixer = require("autoprefixer");
-const fs = require("fs");
-const paths = require("./paths");
 
 const config = {
   entry: "./src/index.tsx",
@@ -16,68 +13,27 @@ const config = {
     publicPath: "/"
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
-    alias: {
-      "../../theme.config$": path.resolve(paths.styling, "theme.config"),
-      heading: path.resolve(paths.styling, "heading.less")
-    }
+    extensions: [".ts", ".tsx", ".js"]
   },
   devtool: "source-map",
   module: {
     rules: [
-      //semantic ui custom theme less loader
-      {
-        test: /\.less$/,
-        include: [path.resolve(paths.styling)],
-        use: ExtractTextPlugin.extract({
-          use: ["css-loader", "less-loader"]
-        })
-      },
-      //css module less loader in components dir
-      {
-        test: /\.less$/,
-        exclude: [path.resolve(paths.styling)],
-        loaders: [
-          "style-loader?sourceMap",
-          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
-          "resolve-url-loader",
-          "less-loader?sourceMap"
-        ]
-      },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: "ts-loader"
       },
       {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff",
-        include: [path.resolve(paths.styling, "fonts")]
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-        include: [path.resolve(paths.styling, "fonts")]
-      },
-      {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.ico$/],
-        loader: require.resolve("url-loader"),
-        exclude: [path.resolve(paths.styling, "fonts")]
-      },
-      // "file" loader makes sure assets end up in the `build` folder.
-      // When you `import` an asset, you get its filename.
-      {
         test: [
           /\.eot$/,
           /\.otf$/,
           /\.ttf$/,
           /\.svg$/,
+          /\.png$/,
           /\.woff$/,
-          /\.woff2$/,
-          /\.ico$/
+          /\.woff2$/
         ],
-        loader: require.resolve("file-loader"),
-        exclude: [path.resolve(paths.styling, "fonts")]
+        loader: require.resolve("file-loader")
       },
       {
         test: /\.css$/,

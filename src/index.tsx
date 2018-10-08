@@ -6,7 +6,8 @@ import { Router } from "react-router-dom";
 import { history, store } from "./_helpers";
 import { App } from "./App";
 import "./index.css";
-require("./styling/semantic.less");
+import "semantic-ui-css/semantic.min.css";
+
 render(
   <Provider store={store}>
     <Router history={history}>
