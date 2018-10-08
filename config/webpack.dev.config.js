@@ -110,7 +110,7 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "public/index.html",
-      title: "Account Management",
+      title: "Redhat Coding Challenge",
       inject: "body",
       favicon: "src/assets/favicon.ico"
     }),

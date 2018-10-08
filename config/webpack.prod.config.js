@@ -66,7 +66,7 @@ const config = {
       // "file" loader makes sure assets end up in the `build` folder.
       // When you `import` an asset, you get its filename.
       {
-        test: [/\.eot$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
+        test: [/\.eot$/, /\.otf$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
         loader: require.resolve("file-loader"),
         exclude: [path.resolve(paths.styling, "fonts")]
       },
@@ -78,7 +78,7 @@ const config = {
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    // new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(["dist"]),
     new UglifyJSPlugin({
       sourceMap: true
     }),
@@ -86,8 +86,8 @@ const config = {
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
     new HtmlWebpackPlugin({
-      template: "src/assets/index.html",
-      title: "Account Management",
+      template: "public/index.html",
+      title: "Redhat Coding Challenge",
       inject: "body"
     }),
     new ExtractTextPlugin({

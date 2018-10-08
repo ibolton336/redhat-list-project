@@ -18,8 +18,8 @@ field frontend development? How do you choose which technologies are worth takin
 time to learn more about?
 
 A2-
-While the front end field is moving and changing at a rapid pace, I like to refresh myself on the fundamental prototypal nature of javascript which things like 
-ES6 classes merely wrap in sugar syntax. Understanding javascript at its core has helped me stay grounded when evaluating other front end technologies. 
+While the frontend field is moving and changing at a rapid pace, I like to refresh myself on the fundamental prototypal nature of javascript which things like 
+ES6 classes merely wrap in sugar syntax. Understanding javascript at its core has helped me stay grounded when evaluating other frontend technologies. 
 
 
 Section 2 - & Deployment
