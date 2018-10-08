@@ -60,6 +60,7 @@ export class UserDetailCard extends React.Component<
                   }
                 }}
               >
+                <Icon name="bookmark" size="large" />
                 Bookmark
               </Button>
             </Card.Header>

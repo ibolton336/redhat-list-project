@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const config = {
   entry: "./src/index.tsx",
@@ -25,6 +26,7 @@ const config = {
       },
       {
         test: [
+          /\.ico$/,
           /\.eot$/,
           /\.otf$/,
           /\.ttf$/,
@@ -50,11 +52,15 @@ const config = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
+    new FaviconsWebpackPlugin(
+      path.resolve(__dirname, "../src/assets/images/rh-svg.svg")
+    ),
     new HtmlWebpackPlugin({
       template: "public/index.html",
       title: "Redhat Coding Challenge",
       inject: "body"
     }),
+
     new ExtractTextPlugin({
       filename: "style.css"
     })

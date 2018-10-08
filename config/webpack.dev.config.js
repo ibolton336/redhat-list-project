@@ -27,6 +27,7 @@ const config = {
       },
       {
         test: [
+          /\.ico$/,
           /\.eot$/,
           /\.otf$/,
           /\.ttf$/,
@@ -61,7 +62,7 @@ const config = {
       template: "public/index.html",
       title: "Redhat Coding Challenge",
       inject: "body",
-      favicon: "src/assets/favicon.ico"
+      favicon: "public/favicon.ico"
     }),
     new ExtractTextPlugin({
       filename: "[name].[contenthash].css"

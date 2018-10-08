@@ -72,7 +72,7 @@ class ConnectedHomePage extends React.Component<any, any> {
           <div className="header-row">
             {/* {Object.keys(this.props.users[0]).map((colName, i) => ( */}
             {colNames.map((colName, i) => (
-              <div className="header-col" key={i}>
+              <div className={"header-col-" + colName} key={i}>
                 {colName}
               </div>
             ))}
@@ -88,12 +88,13 @@ class ConnectedHomePage extends React.Component<any, any> {
                 </div>
               </div>
               <div className="data-col">{user.username}</div>
-              <div className="data-col">{user.email}</div>
-              <div className="data-col">
+              <div className="data-col email">{user.email}</div>
+              <div className="data-col address">
                 <div className="address-text">
                   <p>{user.address.street}</p>
                   <p>
-                    {user.address.city}, {user.address.state}
+                    {user.address.city}{" "}
+                    {user.address.state && <span>, {user.address.state}</span>}
                   </p>
 
                   <p>{user.address.zipcode}</p>

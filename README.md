@@ -18,3 +18,5 @@
 3. navigate to "localhost:9000"
 4. In seperate terminal window, run "npm run cypress:open"
 5. Click "bookmark_spec.js" in dropdown to run test.
+
+App is currently deployed here: 206.189.12.247

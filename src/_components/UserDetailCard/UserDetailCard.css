@@ -85,3 +85,7 @@
   margin: 2em 0em;
   padding: 0em 0em 2em 0em;
 }
+.bookmark-button {
+  font-size: 0.8em;
+  padding: 0.9em;
+}

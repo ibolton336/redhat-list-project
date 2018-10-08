@@ -7,7 +7,6 @@ import { history, store } from "./_helpers";
 import { App } from "./App";
 import "./index.css";
 import "semantic-ui-css/semantic.min.css";
-
 render(
   <Provider store={store}>
     <Router history={history}>

@@ -10,15 +10,46 @@
   display: flex;
 }
 .data-col {
-  flex: 0 0 13em;
+  flex: 1;
   margin: 2em;
 }
 
-.header-col {
-  flex: 0 0 13em;
+.header-col-Name {
+  flex: 1;
   margin: 2em;
   font-family: "overpass-bold";
 }
+.header-col-Username {
+  flex: 1;
+  margin: 2em;
+  font-family: "overpass-bold";
+}
+.header-col-Email {
+  flex: 1;
+  margin: 2em;
+  font-family: "overpass-bold";
+}
+@media (max-width: 700px) {
+  .header-col-Email {
+    display: none;
+  }
+  .header-col-Address {
+    display: none;
+  }
+  .email {
+    display: none;
+  }
+  .address {
+    display: none;
+  }
+}
+
+.header-col-Address {
+  flex: 1;
+  margin: 2em;
+  font-family: "overpass-bold";
+}
+
 .header-row {
   display: flex;
 }

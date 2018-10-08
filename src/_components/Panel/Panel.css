@@ -85,3 +85,8 @@
   margin: 2em 0em;
   padding: 0em 0em 2em 0em;
 }
+@media (max-width: 450px) {
+  .nav-items {
+    display: none;
+  }
+}

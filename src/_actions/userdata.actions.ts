@@ -40,7 +40,6 @@ function getLatest() {
               return user;
             })
             .catch(err => {
-              user.address.state = "N/A";
               return user;
             })
         );

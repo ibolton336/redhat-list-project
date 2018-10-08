@@ -54,7 +54,7 @@ export class ConnectedUserDetailPage extends React.Component<
       <div className="user-detail-container">
         <div className="header-brand">
           <Image className="page-logo" src={logoImg} size="tiny" />
-          <div className="page-title">User Detail Page</div>
+          <div className="user-detail-page-title">User Detail</div>
         </div>
 
         <Breadcrumb className="breadcrumb-container">
